@@ -1,13 +1,19 @@
 ![Iris: An open-source shaders mod compatible with OptiFine shaderpacks](docs/banner.png)
 
-# Iris
+# Iris (1.16.1 backport for Speedrunning)
 
 ## Links
 
+* RedLime: Visit [my ko-fi page](https://www.ko-fi.com/redlimerl) to support the continued developments!
 * **Visit [our website](https://irisshaders.net) for downloads and pretty screenshots!**
 * Visit [our Discord server](https://discord.gg/jQJnav2jPu) to chat about the mod and get support! It's also a great place to get development updates right as they're happening.
 * Visit [my Patreon page](https://www.patreon.com/coderbot) to support the continued development of Iris!
 * Visit [the developer documentation](https://github.com/IrisShaders/Iris/tree/trunk/docs/development) for information on developing, building, and contributing to Iris!
+
+## Note for 1.16.1 Users
+This mod is just a backported version of Iris to work with the 1.16.1 Sodium Speedrunning build.
+\
+So there is no guarantee that it will be compatible with other 1.16.1 mods, and rendering related mods (like WorldPreview) may conflict or crash.
 
 ## FAQ
 
