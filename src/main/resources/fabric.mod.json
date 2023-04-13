@@ -57,6 +57,7 @@
     "imm_ptl_core": "*",
     "immersive_portals": "*",
     "physicsmod": "<2.6.6",
-    "fadeinchunks": "*"
+    "fadeinchunks": "*",
+    "worldpreview": "*"
   }
 }
