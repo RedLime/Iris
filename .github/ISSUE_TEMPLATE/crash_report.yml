@@ -6,16 +6,16 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this crash report!
-        
+
         Before continuing to make the issue, please make sure there are no similar issues on [the issue tracker](https://github.com/IrisShaders/Iris/issues). If there are, consider contributing your information in there instead!
-        
+
         Also, make sure you are using the latest version of the mod! If not, try updating to see if it resolves your issue.
   - type: input
     id: minecraft-version
     attributes:
       label: Minecraft Version
       description: What version of Minecraft are you running? If you do not know what version you are using, look in the bottom left corner of the main menu in game.
-      placeholder: ex. Minecraft 1.16.5
+      placeholder: ex. Minecraft 1.16.1
     validations:
       required: true
   - type: input
@@ -54,7 +54,7 @@ body:
     id: java
     attributes:
       label: Java Version
-      description: What Java version are you running? If you haven't touched the one in the launcher, it's Java 8 for 1.16.5 and Java 16 for 1.17
+      description: What Java version are you running? If you haven't touched the one in the launcher, it's Java 8 for ~1.16.1 and Java 16 for 1.17
       placeholder: ex. Java 11
     validations:
       required: true
@@ -79,9 +79,9 @@ body:
       label: Crash Report file and latest.log
       description: |
         Upload your crash report file and latest.log as an attachment to this issue (drag-and-drop) or to a service such as GitHub Gist (paste a link). This information is critical in resolving your issue!
-        
+
         Tip: Messages like "Exit code 0" from your launcher are not what you're looking for. If your launcher does not provide a button to view the most recent crash report, check your game's "crash-reports" folder for the most recent crash report file.
-        
+
         This will be automatically formatted into code, so no need for backticks.
       placeholder: |
         ---- Minecraft Crash Report ----
@@ -89,7 +89,7 @@ body:
 
         Time: 4/18/21 5:36 PM
         Description: Unexpected error
-        
+
         java.util.ConcurrentModificationException
         	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
         	at java.util.ArrayList$Itr.next(Unknown Source)

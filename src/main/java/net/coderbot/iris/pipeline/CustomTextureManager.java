@@ -174,6 +174,6 @@ public class CustomTextureManager {
 	}
 
 	public void destroy() {
-		ownedTextures.forEach(AbstractTexture::close);
+		//ownedTextures.forEach(AbstractTexture::close);
 	}
 }

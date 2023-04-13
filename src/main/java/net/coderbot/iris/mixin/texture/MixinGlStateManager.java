@@ -32,13 +32,6 @@ public class MixinGlStateManager {
 		iris$onDeleteTexture(id);
 	}
 
-	@Inject(method = "_deleteTextures([I)V", at = @At("TAIL"))
-	private static void iris$onDeleteTextures(int[] ids, CallbackInfo ci) {
-		for (int id : ids) {
-			iris$onDeleteTexture(id);
-		}
-	}
-
 	@Unique
 	private static void iris$onDeleteTexture(int id) {
 		TextureTracker.INSTANCE.onDeleteTexture(id);

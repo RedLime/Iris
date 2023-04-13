@@ -14,9 +14,9 @@ Sometimes, we make beta builds available on the Discord server. These might not 
 Once you're confident that development builds are right for you, follow these steps to get a build:
 
 1. Download or check out a copy of the source code from GitHub, with the appropriate branch:
-    - `trunk`, for Minecraft 1.16.5
+    - `trunk`, for Minecraft 1.16.1
     - `1.18.2`, for Minecraft 1.18.2
     - `1.19`, for Minecraft 1.19
-    - a different development branch (usually for Minecraft 1.16.5)
+    - a different development branch (usually for Minecraft 1.16.1)
 2. Execute a `java -jar brachyura-bootstrap-0.jar build` command in a terminal
 3. Done! Use the JAR file in `build/libs/` as a normal Fabric Mod.

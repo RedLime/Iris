@@ -127,11 +127,6 @@ public class PBRTextureManager {
 	}
 
 	private static void closeTexture(AbstractTexture texture) {
-		try {
-			texture.close();
-		} catch (Exception e) {
-			//
-		}
 		texture.releaseId();
 	}
 

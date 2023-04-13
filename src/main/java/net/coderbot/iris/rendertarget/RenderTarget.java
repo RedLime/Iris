@@ -1,11 +1,13 @@
 package net.coderbot.iris.rendertarget;
 
 import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.texture.InternalTextureFormat;
 import net.coderbot.iris.gl.texture.PixelFormat;
 import net.coderbot.iris.gl.texture.PixelType;
 import net.coderbot.iris.vendored.joml.Vector2i;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL11C;
 import org.lwjgl.opengl.GL13C;
 
@@ -36,7 +38,8 @@ public class RenderTarget {
 		this.height = builder.height;
 
 		int[] textures = new int[2];
-		GlStateManager._genTextures(textures);
+		RenderSystem.assertThread(RenderSystem::isOnRenderThreadOrInit);
+		GL11.glGenTextures(textures);
 
 		this.mainTexture = textures[0];
 		this.altTexture = textures[1];
@@ -107,7 +110,8 @@ public class RenderTarget {
 		requireValid();
 		isValid = false;
 
-		GlStateManager._deleteTextures(new int[]{mainTexture, altTexture});
+		GlStateManager._deleteTexture(mainTexture);
+		GlStateManager._deleteTexture(altTexture);
 	}
 
 	private void requireValid() {

@@ -31,6 +31,8 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.DimensionType;
 import org.jetbrains.annotations.NotNull;
 import org.lwjgl.glfw.GLFW;
@@ -625,9 +627,10 @@ public class Iris {
 		ClientLevel level = Minecraft.getInstance().level;
 
 		if (level != null) {
-			if (level.dimensionType().effectsLocation().equals(DimensionType.END_EFFECTS) || level.dimension().equals(net.minecraft.world.level.Level.END)) {
+			ResourceKey<Level> levelRegistryKey = level.dimension();
+			if (levelRegistryKey.equals(net.minecraft.world.level.Level.END)) {
 				return DimensionId.END;
-			} else if (level.dimensionType().effectsLocation().equals(DimensionType.NETHER_EFFECTS) || level.dimension().equals(net.minecraft.world.level.Level.NETHER)) {
+			} else if (levelRegistryKey.equals(net.minecraft.world.level.Level.NETHER)) {
 				return DimensionId.NETHER;
 			} else {
 				return DimensionId.OVERWORLD;

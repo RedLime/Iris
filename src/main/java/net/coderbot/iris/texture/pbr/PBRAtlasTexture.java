@@ -126,20 +126,20 @@ public class PBRAtlasTexture extends AbstractTexture {
 		}
 	}
 
-	@Override
-	public void close() {
-		PBRAtlasHolder pbrHolder = ((TextureAtlasExtension) atlasTexture).getPBRHolder();
-		if (pbrHolder != null) {
-			switch (type) {
-			case NORMAL:
-				pbrHolder.setNormalAtlas(null);
-				break;
-			case SPECULAR:
-				pbrHolder.setSpecularAtlas(null);
-				break;
-			}
-		}
-	}
+//	@Override
+//	public void close() {
+//		PBRAtlasHolder pbrHolder = ((TextureAtlasExtension) atlasTexture).getPBRHolder();
+//		if (pbrHolder != null) {
+//			switch (type) {
+//			case NORMAL:
+//				pbrHolder.setNormalAtlas(null);
+//				break;
+//			case SPECULAR:
+//				pbrHolder.setSpecularAtlas(null);
+//				break;
+//			}
+//		}
+//	}
 
 	@Override
 	public void load(ResourceManager manager) {

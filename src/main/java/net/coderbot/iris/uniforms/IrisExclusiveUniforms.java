@@ -31,18 +31,6 @@ public class IrisExclusiveUniforms {
 		uniforms.uniform1b(UniformUpdateFrequency.PER_FRAME, "firstPersonCamera", IrisExclusiveUniforms::isFirstPersonCamera);
 		uniforms.uniform1b(UniformUpdateFrequency.PER_TICK, "isSpectator", IrisExclusiveUniforms::isSpectator);
 		uniforms.uniform3d(UniformUpdateFrequency.PER_FRAME, "eyePosition", IrisExclusiveUniforms::getEyePosition);
-		Vector4f zero = new Vector4f(0, 0, 0, 0);
-		uniforms.uniform4f(UniformUpdateFrequency.PER_TICK, "lightningBoltPosition", () -> {
-			if (Minecraft.getInstance().level != null) {
-				return StreamSupport.stream(Minecraft.getInstance().level.entitiesForRendering().spliterator(), false).filter(bolt -> bolt instanceof LightningBolt).findAny().map(bolt -> {
-					Vector3d unshiftedCameraPosition = CameraUniforms.getUnshiftedCameraPosition();
-					Vec3 vec3 = bolt.getPosition(Minecraft.getInstance().getDeltaFrameTime());
-					return new Vector4f((float) (vec3.x - unshiftedCameraPosition.x), (float) (vec3.y - unshiftedCameraPosition.y), (float) (vec3.z - unshiftedCameraPosition.z), 1);
-				}).orElse(zero);
-			} else {
-				return zero;
-			}
-		});
 	}
 
 	private static float getThunderStrength() {
@@ -93,12 +81,7 @@ public class IrisExclusiveUniforms {
 
 	private static boolean isFirstPersonCamera() {
 		// If camera type is not explicitly third-person, assume it's first-person.
-		switch (Minecraft.getInstance().options.getCameraType()) {
-			case THIRD_PERSON_BACK:
-			case THIRD_PERSON_FRONT:
-				return false;
-			default: return true;
-		}
+		return Minecraft.getInstance().options.thirdPersonView == 0;
 	}
 
 	private static boolean isSpectator() {

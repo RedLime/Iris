@@ -162,7 +162,7 @@ public class ShaderPackOptionList extends IrisObjectSelectionList<ShaderPackOpti
 			Font font = Minecraft.getInstance().font;
 
 			// Draw header text
-			drawCenteredString(poseStack, font, text, x + (int)(entryWidth * 0.5), y + 5, 0xFFFFFF);
+			this.screen.drawCenteredString(poseStack, font, text, x + (int)(entryWidth * 0.5), y + 5, 0xFFFFFF);
 
 			GuiUtil.bindIrisWidgetsTexture();
 

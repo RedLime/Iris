@@ -14,7 +14,7 @@ release sufficiently, follow these steps to publish that new release to the publ
 5. Once complete, download the build for each release. For each version:
     1. Put the JAR into a folder called `mods`
     2. Compress that folder into a ZIP file.
-    3. Rename that ZIP file to `Iris-Sodium-1.16.5.zip`, replacing the 1.16.5 part with the relevant version if needed.
+    3. Rename that ZIP file to `Iris-Sodium-1.16.1.zip`, replacing the 1.16.1 part with the relevant version if needed.
     4. Place that ZIP into the correct folder of the Iris-Installer-Files repository.
     5. Commit the newly added files in the Iris-Installer-Files repository.
 6. Create a new tag on the Iris-Installer-Files repository.

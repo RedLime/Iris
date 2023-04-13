@@ -18,8 +18,14 @@ public class SodiumVersionCheck {
 			// ReplayMod's existing compatible forked 0.2.0 version
 			AllowedSodiumVersion.prefix("0.2.0+rev.f42b4ca"),
 
-			// For future use by ReplayMod
-			AllowedSodiumVersion.prefix("0.2.0+replaymod")
+		// For future use by ReplayMod
+		AllowedSodiumVersion.prefix("0.2.0+replaymod"),
+
+		// Sodium speedrunning build
+		AllowedSodiumVersion.prefix("0.2.0+v1"),
+
+		// Sodium speedrunning build
+		AllowedSodiumVersion.prefix("v1")
 	);
 
 	public static String getDownloadLink() {

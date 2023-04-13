@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
-        
+
         Before continuing to make the issue, please make sure there are no similar issues on [the issue tracker](https://github.com/IrisShaders/Iris/issues). If there are, consider contributing your information in there instead!
   - type: textarea
     id: what-happened
@@ -35,7 +35,7 @@ body:
     attributes:
       label: Minecraft Version
       description: What version of Minecraft are you running? If you do not know what version you are using, look in the bottom left corner of the main menu in game.
-      placeholder: ex. Minecraft 1.16.5
+      placeholder: ex. Minecraft 1.16.1
     validations:
       required: true
   - type: input
@@ -48,7 +48,7 @@ body:
       required: true
   - type: input
     id: os
-    attributes: 
+    attributes:
       label: Operating System
       description: What is your Operating System?
       placeholder: ex. Windows 10

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * Allows us to figure out when Light Overlay is about to dispatch a draw call, since the 1.16.5 version of Light Overlay
+ * Allows us to figure out when Light Overlay is about to dispatch a draw call, since the 1.16.1 version of Light Overlay
  * does not use GlStateManager#drawArrays. This is required for us to update our state in time.
  *
  * This is the code path for when Light Overlay uses immediate mode without display lists. It draws numbers through

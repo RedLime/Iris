@@ -18,10 +18,10 @@ import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FormattedText;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.util.FormattedCharSequence;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
@@ -63,7 +63,7 @@ public class ShaderPackScreen extends Screen implements HudHideable {
 
 	private @Nullable AbstractElementWidget<?> hoveredElement = null;
 	private Optional<Component> hoveredElementCommentTitle = Optional.empty();
-	private List<FormattedCharSequence> hoveredElementCommentBody = new ArrayList<>();
+	private List<FormattedText> hoveredElementCommentBody = new ArrayList<>();
 	private int hoveredElementCommentTimer = 0;
 
 	private boolean optionMenuOpen = false;
@@ -75,6 +75,7 @@ public class ShaderPackScreen extends Screen implements HudHideable {
 
 	private boolean guiHidden = false;
 	private float guiButtonHoverTimer = 0.0f;
+	private ImageButton irisImageButton = null;
 
 	public ShaderPackScreen(Screen parent) {
 		super(new TranslatableComponent("options.iris.shaderPackSelection.title"));
@@ -149,6 +150,13 @@ public class ShaderPackScreen extends Screen implements HudHideable {
 			}
 		}
 
+		if (this.irisImageButton != null) {
+			this.guiButtonHoverTimer += this.minecraft.getDeltaFrameTime();
+			if (this.guiButtonHoverTimer >= 10.0f) {
+				TOP_LAYER_RENDER_QUEUE.add(() -> this.renderTooltip(poseStack, this.irisImageButton.getMessage(), mouseX, mouseY));
+			}
+		}
+
 		// Render everything queued to render last
 		for (Runnable render : TOP_LAYER_RENDER_QUEUE) {
 			render.run();
@@ -204,12 +212,12 @@ public class ShaderPackScreen extends Screen implements HudHideable {
 			this.shaderOptionList = null;
 		}
 
-		if (inWorld) {
-			this.shaderPackList.setRenderBackground(false);
-			if (shaderOptionList != null) {
-				this.shaderOptionList.setRenderBackground(false);
-			}
-		}
+//		if (inWorld) {
+//			this.shaderPackList.setRenderBackground(false);
+//			if (shaderOptionList != null) {
+//				this.shaderOptionList.setRenderBackground(false);
+//			}
+//		}
 
 		this.buttons.clear();
 
@@ -266,7 +274,7 @@ public class ShaderPackScreen extends Screen implements HudHideable {
 				x = (int) (endOfLastButton + (freeSpace / 2.0f)) - 10;
 			}
 
-			this.addButton(new ImageButton(
+			this.irisImageButton = this.addButton(new ImageButton(
 				x, this.height - 39,
 				20, 20,
 				this.guiHidden ? 20 : 0, 146, 20,
@@ -275,12 +283,6 @@ public class ShaderPackScreen extends Screen implements HudHideable {
 				button -> {
 					this.guiHidden = !this.guiHidden;
 					this.init();
-				},
-				(button, poseStack, i, j) -> {
-					this.guiButtonHoverTimer += this.minecraft.getDeltaFrameTime();
-					if (this.guiButtonHoverTimer >= 10.0f) {
-						TOP_LAYER_RENDER_QUEUE.add(() -> this.renderTooltip(poseStack, showOrHide, i, j));
-					}
 				},
 				showOrHide
 			));

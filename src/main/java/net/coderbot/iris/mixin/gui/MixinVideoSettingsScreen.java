@@ -21,8 +21,7 @@ public abstract class MixinVideoSettingsScreen extends Screen {
 			at = @At(
 					value = "INVOKE",
 					target = "Lnet/minecraft/client/gui/components/OptionsList;addSmall([Lnet/minecraft/client/Option;)V"
-			),
-			index = 0
+			)
 	)
 	private Option[] iris$addShaderPackScreenButton(Option[] old) {
 		Option[] options = new Option[old.length + 2];
