@@ -25,7 +25,8 @@ public class SodiumVersionCheck {
 		AllowedSodiumVersion.prefix("0.2.0+v1"),
 
 		// Sodium speedrunning build
-		AllowedSodiumVersion.prefix("v1")
+		AllowedSodiumVersion.prefix("v1"),
+		AllowedSodiumVersion.prefix("v2")
 	);
 
 	public static String getDownloadLink() {
